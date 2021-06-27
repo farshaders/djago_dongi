@@ -1,0 +1,42 @@
+<style>
+    #b_delete {
+        background-color: #f44336;
+        color: white;
+        padding: 14px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+    
+    #b_edit {
+        background-color: #369ef4;
+        color: white;
+        padding: 14px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+    
+    a:hover,
+    a:active {
+        background-color: gray;
+    }
+</style>
+{% if users %}
+<table>
+    {% for user in users %}
+    <tr>
+        <td>{{user.id}}</td>
+        <td>{{user.first_name}}</td>
+        <td>{{user.last_name}}</td>
+        <td><a id=b_delete href="{% url 'dongi:user_delete' user.id %}" onclick="return confirm('are you carzy?? to delete {{user.first_name}}??')">delete</a></td>
+        <td><a id=b_edit href="{% url 'dongi:user_edit' user.id %}" onclick="return confirm('are you carzy?? to edit {{user.first_name}}??')">edit</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h1> {{users_len}} users found</h1>
+{% endif %}
+<form action="{% url 'dongi:user_create' %}">
+    <input style="color:blue" type="submit" value="add user ma fa" />
+</form>

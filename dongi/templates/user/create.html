@@ -1,0 +1,16 @@
+<form action="{% url 'dongi:user_create' %}" method="POST">{% csrf_token %} {% for field in form %}
+    <table>
+        <tr>
+            <!--<td>USERID<input type="text"></td> -->
+            <TR>
+                <td>FIRST NAME <input type="text"></td>
+            </TR>
+            <TR>
+                <td>LAST NAME <input type="text"> </td>
+            </TR>
+
+        </tr>
+        <input type="submit" value="Add this asshole" />
+    </table>
+    {% endfor %}
+</form>
